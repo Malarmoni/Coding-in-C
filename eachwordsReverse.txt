@@ -1,0 +1,48 @@
+#include<stdio.h>
+#include<string.h>
+void rev(char x[])
+{
+    int count=0;
+    int i=0;
+    for(;x[i];i++)
+    {
+        if(x[i]!=' ')
+        {
+            count++;
+        }
+        else
+        {
+            int h = i-count;
+            int g = i-1;
+            while(h<g)
+            {
+                char temp = x[h];
+                x[h] = x[g];
+                x[g] = temp;
+                h++;
+                g--;
+            }
+            count=0;
+        }
+    }
+            int h = i-count;
+            int g = i-1;
+            while(h<g)
+            {
+                char temp = x[h];
+                x[h] = x[g];
+                x[g] = temp;
+                h++;
+                g--;
+            }
+    
+}
+int main()
+{
+    char x[60];
+    scanf("%[^\n]s",x);
+    printf("%s\n",x);
+    rev(x);
+    printf("%s\n",x);
+    return 0;
+}

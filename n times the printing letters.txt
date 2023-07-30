@@ -1,0 +1,31 @@
+#include<stdio.h>
+void number(char x[])
+{
+    for(int i=0;x[i];i++)
+    {
+        int count=1;
+        if(x[i]!='$')
+        {
+            for(int j=i+1;x[j];j++)
+            {
+                if(x[i]==x[j])
+                {
+                    count++;
+                    x[j]='$';
+                }
+                else
+                {
+                    break;
+                }
+            }
+            printf("%c%d",x[i],count);
+        }
+    }
+}
+int main()
+{
+    char x[300];
+    scanf("%s",x);
+    number(x);
+    return 0;
+}

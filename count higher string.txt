@@ -1,0 +1,40 @@
+#include<stdio.h>
+void high(char x[])
+{
+    int i=0;
+    int start = -1;
+    int count=0;
+    int max=0;
+    for(;x[i];i++)
+    {
+        if(x[i]!=' ')
+        {
+            count++;
+        }
+        else
+        {
+            if(count>max)
+            {
+                max=count;
+                start=i-count;
+            }
+            count = 0;
+        }
+    }
+    if(count>max)
+    {
+        max=count;
+        start=i-count;
+    }
+    for(int k=start;k<(start+max);k++)
+    {
+        printf("%c",x[k]);
+    }
+}
+int main()
+{
+    char x[300];
+    scanf("%s",x);
+    high(x);
+    return 0;
+}
