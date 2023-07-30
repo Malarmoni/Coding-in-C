@@ -1,0 +1,46 @@
+#include<stdio.h>
+int maximum(int A[],int n)
+{
+    int m = A[0];
+    for(int i=0;i<n;i++)
+    {
+        if(m<A[i])
+        {
+            m=A[i];
+        }
+    }
+    return m;
+}
+void dup(int A[],int n)
+{
+   int max=maximum(A,n);
+   int B[max+1];
+   for(int i=0;i<max+1;i++)
+   {
+       B[i]=0;
+   }
+   for(int i=0;i<n;i++)
+   {
+       int k = A[i];
+       B[k]++;
+   }
+   for(int i=0;i<max+1;i++)
+   {
+       if(B[i]!=0)
+       {
+           printf("%d ",i);
+       }
+   }
+}
+int main()
+{
+    int n;
+    scanf("%d",&n);
+    int A[n];
+    for(int i=0;i<n;i++)
+    {
+        scanf("%d",&A[i]);
+    }
+    dup(A,n);
+    return 0;
+}
